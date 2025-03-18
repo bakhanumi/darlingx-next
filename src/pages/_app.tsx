@@ -1,11 +1,14 @@
 import React, { useEffect } from 'react';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
+import { SessionProvider } from 'next-auth/react';
 import { useMatrixAnimationEffect } from '@/utils/helpers';
 import '@/styles/globals.css';
 import '@/styles/constellation.css';
 import '@/styles/books.css';
 import '@/styles/book-details.css';
+import '@/styles/auth.css';
+import '@/styles/profile.css'; // Добавляем стили для профиля
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -32,5 +35,9 @@ export default function App({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
   
-  return <Component {...pageProps} />;
+  return (
+    <SessionProvider session={pageProps.session}>
+      <Component {...pageProps} />
+    </SessionProvider>
+  );
 }

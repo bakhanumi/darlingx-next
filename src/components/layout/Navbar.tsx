@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { NavLink } from '@/types';
+import AuthStatus from '@/components/auth/AuthStatus';
 
 const Navbar: React.FC = () => {
   const router = useRouter();
@@ -17,16 +18,22 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="navbar">
-      {navLinks.map((link, index) => (
-        <Link 
-          href={link.href} 
-          key={index}
-          className={`nav-link ${router.pathname === link.href ? 'active' : ''}`}
-          style={{ animationDelay: `${index * 0.1}s` }}
-        >
-          <span className="animate_letters">[{link.label}]</span>
-        </Link>
-      ))}
+      <div className="navbar-left">
+        {navLinks.map((link, index) => (
+          <Link 
+            href={link.href} 
+            key={index}
+            className={`nav-link ${router.pathname === link.href ? 'active' : ''}`}
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <span className="animate_letters">[{link.label}]</span>
+          </Link>
+        ))}
+      </div>
+      
+      <div className="navbar-right">
+        <AuthStatus />
+      </div>
     </nav>
   );
 };

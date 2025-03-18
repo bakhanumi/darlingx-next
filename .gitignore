@@ -1,0 +1,11 @@
+# SQLite database files
+*.sqlite
+*.sqlite-journal
+*.sqlite-shm
+*.sqlite-wal
+
+# Local env files
+.env*.local
+
+# NextAuth
+next-auth.d.ts

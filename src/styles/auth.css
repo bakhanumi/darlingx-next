@@ -1,0 +1,209 @@
+/* Стили для компонентов авторизации */
+
+.auth-page {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.auth-form-container {
+  width: 100%;
+  background: var(--bg-color-light);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.1);
+  animation: fadeIn 0.8s ease-out;
+}
+
+.auth-form-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.auth-title {
+  font-size: var(--font-size-2xl);
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.auth-subtitle {
+  font-size: var(--font-size-md);
+  color: var(--text-color-muted);
+}
+
+.auth-error-message {
+  background-color: rgba(220, 38, 38, 0.1);
+  color: rgb(239, 68, 68);
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.auth-success-message {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: rgb(52, 211, 153);
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: var(--font-size-sm);
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 0.75rem 1rem;
+  font-size: var(--font-size-md);
+  color: var(--text-color);
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-normal);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+.auth-submit-button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: var(--font-size-md);
+  font-weight: 600;
+  color: var(--bg-color);
+  background: var(--primary-color);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.auth-submit-button:hover {
+  background: var(--primary-color-dark);
+  transform: translateY(-2px);
+}
+
+.auth-submit-button:active {
+  transform: translateY(0);
+}
+
+.auth-submit-button:disabled,
+.auth-submit-button.loading {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.auth-links {
+  margin-top: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.auth-link {
+  color: var(--primary-color);
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  transition: all var(--transition-normal);
+}
+
+.auth-link:hover {
+  color: var(--primary-color-dark);
+  text-decoration: underline;
+}
+
+/* Стили для компонента AuthStatus */
+.auth-status {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.auth-status-username {
+  font-size: var(--font-size-md);
+  color: var(--primary-color);
+}
+
+.auth-logout-button {
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  padding: 0.25rem 0.5rem;
+}
+
+.auth-logout-button:hover {
+  color: var(--primary-color-dark);
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: var(--radius-sm);
+}
+
+.auth-login-link,
+.auth-register-link {
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-size-sm);
+  color: var(--primary-color);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-normal);
+}
+
+.auth-login-link:hover,
+.auth-register-link:hover {
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .auth-page {
+    padding: 1.5rem 1rem;
+  }
+  
+  .auth-form-container {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding: 1rem 0.5rem;
+  }
+  
+  .auth-form-container {
+    padding: 1rem;
+  }
+  
+  .auth-title {
+    font-size: var(--font-size-xl);
+  }
+  
+  .form-group input,
+  .auth-submit-button {
+    padding: 0.5rem 0.75rem;
+  }
+}
